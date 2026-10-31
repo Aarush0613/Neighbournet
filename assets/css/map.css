@@ -1,0 +1,195 @@
+/* ==========================================================================
+   NeighbourNet — Interactive Incident Map Stylesheet
+   Leaflet.js + OpenStreetMap Custom Styling
+   ========================================================================== */
+
+.map-page-wrapper {
+    position: relative;
+    height: calc(100vh - 65px);
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sidebar Filter Panel */
+.map-sidebar {
+    width: 380px;
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease-in-out;
+}
+
+.map-sidebar-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    background-color: #ffffff;
+}
+
+.map-sidebar-filters {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface-muted);
+}
+
+.map-sidebar-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1.25rem;
+}
+
+/* Map Container */
+.map-canvas-container {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    background-color: #e2e8f0;
+}
+
+#communityMap {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Floating Action Pill on Map */
+.map-floating-controls {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+}
+
+.btn-map-control {
+    background-color: #ffffff;
+    color: var(--color-navy);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+.btn-map-control:hover {
+    background-color: var(--color-surface-subtle);
+    border-color: var(--color-border-hover);
+    color: var(--color-blue);
+}
+
+/* Custom Marker DivIcons */
+.leaflet-civic-pin {
+    background: transparent;
+    border: none;
+}
+
+.civic-pin-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.35);
+    border: 3px solid #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.civic-pin-badge:hover {
+    transform: scale(1.18);
+    z-index: 1000 !important;
+}
+
+/* Status ring indicator on pin */
+.pin-status-pending { border-color: #fde68a !important; }
+.pin-status-under_verification { border-color: #bae6fd !important; }
+.pin-status-verified { border-color: #3b82f6 !important; }
+.pin-status-in_progress { border-color: #a855f7 !important; }
+.pin-status-resolved { border-color: #10b981 !important; }
+
+/* Custom Popup Card */
+.leaflet-popup-content-wrapper {
+    border-radius: var(--radius-md) !important;
+    padding: 0 !important;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid var(--color-border);
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    width: 280px !important;
+}
+
+.map-popup-card {
+    padding: 1rem;
+}
+
+.map-popup-card .popup-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.map-popup-card .popup-location {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.6rem;
+}
+
+.map-popup-card .popup-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* User Location GPS Circle & Pulsing Dot */
+.user-location-marker {
+    width: 16px;
+    height: 16px;
+    background-color: #2563eb;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991.98px) {
+    .map-page-wrapper {
+        flex-direction: column;
+        height: calc(100vh - 60px);
+    }
+
+    .map-sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 45vh;
+        order: 2;
+        border-right: none;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .map-canvas-container {
+        order: 1;
+        flex: 1;
+        height: 55vh;
+    }
+}

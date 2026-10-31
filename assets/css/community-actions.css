@@ -1,0 +1,4 @@
+.community-board .task-card { transition: transform .15s ease, box-shadow .15s ease; }
+.community-board .task-card:hover { transform: translateY(-2px); }
+.community-board .progress { background: #e8edf5; }
+.community-board .form-label { font-weight: 600; }
